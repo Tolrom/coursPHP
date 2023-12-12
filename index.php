@@ -90,5 +90,123 @@
         $moy /= $cpt;
         echo "<p>La moyenne des $cpt nombres est égale à ".round($moy,2).".</p>";
     }
-    moyInf(24,68,53,92,65,3,185,123,12)
+    moyInf(24,68,53,92,65,3,185,123,12);
+
+    echo '<h2>EXERCICE 9</h2>'; 
+
+    function mini(...$tab){
+        $min = $tab[0];
+        foreach($tab as $value){
+            if($value < $min){
+                $min = $value;
+            }
+        }
+        echo "<p>La plus petite valeur des nombres donnés est de $min .</p>";
+    }
+    mini(75,42,56,23,42,10,56);
+
+    function mini2(...$tab){
+        echo "<p>La plus petite valeur des nombres donnés est de ".min($tab)."</p>";
+    }
+    mini2(85,96,23,54,27,86,15,7);
+    
+    function mini3(...$tab){
+        for($i = 0 ; $i < count($tab)-1 ; $i++){
+            if($tab[$i] > $tab[$i+1]){
+                $valeur = $tab[$i+1];
+            }
+        }
+        echo "<p>La plus petite valeur des nombres donnés est de $valeur </p>";
+    }
+    mini3(85,96,23,54,27,86,15,7);
+
+    echo '<h2>EXERCICE 10</h2>'; 
+
+    function age(int $age){
+        if($age < 6){
+            echo "<p>L'enfant est trop jeune.</p>";
+        }
+        if($age > 6){
+            if($age > 6 and $age < 8){
+                $cat = 'poussins';
+            }
+            else if($age == 8 or $age == 9){
+                $cat = 'pupilles';
+            }
+            else if($age > 9 and $age < 12){
+                $cat = 'minimes';
+            }
+            else if($age > 12){
+                $cat = 'cadets';
+            }
+                echo "<p>L'enfant est dans la catégorie des $cat </p>";
+        }
+    }
+    age(7);
+
+    function ageS(int $age){
+        switch($age){
+            case 6:
+            case 7:
+                echo "<p>L'enfant est dans la catégorie des poussins.</p>";
+                break;
+            case 8:
+            case 9:
+                echo "<p>L'enfant est dans la catégorie des pupilles. </p>";
+                break;
+            case 10:
+            case 11:
+                echo "<p>L'enfant est dans la catégorie des minimes. </p>";
+                break;
+            case $age>11 :
+                echo "<p>L'enfant est dans la catégorie des cadets. </p>";
+                break;
+            default :
+                echo "<p>L'enfant est trop jeune!</p>";
+        }
+    }
+    ageS(12);
+
+    echo '<h2>EXERCICE 11</h2>'; 
+
+    function maxi(array $tab){
+        $max = $tab[0];
+        foreach($tab as $value){
+            if($value > $max){
+                $max = $value;
+            }
+        }
+        echo "<p>La plus grande valeur du tableau est de $max.</p>";
+    }
+    $maxTab = [12,75,85,96,3,51,21,85];
+    maxi($maxTab);
+    
+    echo '<h2>EXERCICE 12</h2>'; 
+    
+    function avg(array $tab){
+        $avg = 0;
+        $cpt = 0;
+        foreach($tab as $value){
+            $avg += $value;
+            $cpt++;
+        }
+        $avg /= $cpt;
+        echo "<p>La moyenne du tableau est de $avg.</p>";
+    }
+    $avgTab = [12,75,85,96,3,51,21,85];
+    avg($avgTab);
+
+    echo '<h2>EXERCICE 13</h2>'; 
+
+    function miniTab(array $tab){
+        $min = $tab[0];
+        foreach($tab as $value){
+            if($value < $min){
+                $min = $value;
+            }
+        }
+        echo "<p>La plus petite valeur du tableau est de $min.</p>";
+    }
+    $minTab = [12,75,85,96,3,51,21,85];
+    miniTab($minTab);
 ?>
